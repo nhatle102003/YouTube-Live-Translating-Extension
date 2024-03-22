@@ -1,0 +1,25 @@
+{
+    
+    "name": "YouTube Live Chat Translator",
+    "description": "Base Level Extension",
+    "version": "1.0",
+    "permissions": [
+        "tabs",
+        "webNavigation"
+    ],
+    "content_scripts": [{
+        "js": ["scrape.js"],
+        "run_at": "document_end",
+        "matches": [
+            "https://*.youtube.com/*"
+        ]
+    }],
+    "background": {
+        "service_worker": "background.js"
+    },
+    "action": {
+       
+    },
+    "manifest_version" : 3
+        
+}
