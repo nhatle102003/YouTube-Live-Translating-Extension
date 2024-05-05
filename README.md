@@ -4,9 +4,9 @@
 
 # Current Progress So Far
 Successfully able to retrieve messages from YouTube Live Chat and sending the messages back into the extension 
+May 4th Update - Successfully connect to the DeepL API, allowing for flawless auto translation based on language detected
 
 # Current Plan for the Project
-* Need to connect to an API that allowed auto translation with resaonable character limit
 * Touch up the UI
 * Publish somewhere to get people to test it
 * PUBLISH IT ONTO THE GOOGLE EXTENSION PAGE
