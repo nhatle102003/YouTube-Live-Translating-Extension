@@ -1,13 +1,13 @@
 
 let messageStack =  new Set();
 var port = chrome.runtime.connect({name: "content-script"});
+const LOAD_TIME = 5000; //set time for the iframe char to load
 port.onMessage.addListener(function(message) {
     
     if(message.request === "get-chat-messages"){
         setTimeout(() =>{
             const config = { attributes: true, childList: false, subtree: false};
             const targetNode = document.querySelector("#chatframe").contentWindow.document.querySelector("div#items.style-scope.yt-live-chat-item-list-renderer");
-            console.log("this is target node", targetNode)
             const callback = (mutationList) => {
                 if(mutationList[0].type === 'attributes'){
                     var repsonse = {
@@ -25,11 +25,9 @@ port.onMessage.addListener(function(message) {
 
             }
             const observer = new MutationObserver(callback);
-            setTimeout(() => {
-                observer.observe(targetNode, config);
-            }, 1000)
+            observer.observe(targetNode, config);
             
-        }, 5000)
+        }, LOAD_TIME)
     }
 });
 
